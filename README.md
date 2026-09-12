@@ -6,7 +6,19 @@ A Python script that scrolls text across a **32x8 NeoPixel LED matrix** using a 
 * **Raspberry Pi** (e.g., Raspberry Pi 3, 4, or Zero)
 * **32x8 NeoPixel LED Matrix** (WS2812B)
 * **External 5V Power Supply** (NeoPixels pull too much power to run directly off the Pi's 5V pin!)
-* Connecting wires (Data line connected to **GPIO 18**)
+
+## 🔌 Wiring Diagram
+
+Because LED matrices draw a lot of current, you must power the matrix using an **external 5V power supply**, not the Pi's 5V pin. Connect everything as follows:
+
+| From Component | Wire/Pin | To Component | Notes |
+| :--- | :--- | :--- | :--- |
+| **LED Matrix** | **DIN** (Data In) | **Raspberry Pi GPIO 18** (Pin 12) | Controls the lights |
+| **LED Matrix** | **5V / VCC** (+ Power) | **External Power Supply (+)** | Powers the matrix |
+| **LED Matrix** | **GND** (- Ground) | **External Power Supply (-)** | Ground connection |
+| **Raspberry Pi** | **GND** (e.g., Pin 6) | **External Power Supply (-)** | **Crucial:** Common Ground |
+
+*⚠️ **Important:** You must connect a Ground (GND) pin from the Raspberry Pi to the negative (-) terminal of your external power supply so the data signal works properly.*
 
 ## 📐 Matrix Layout
 This script assumes a **vertical zigzag layout** where:
