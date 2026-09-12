@@ -26,15 +26,29 @@ This script assumes a **vertical zigzag layout** where:
    ```
    *(Note: Remove `--break-system-packages` if you are running in a Python virtual environment).*
 
-## 🏃 How to Run
+## 📝 How to Create and Run the File on Your Pi
 
-Because the `neopixel` library requires direct hardware access to the PWM/GPIO pins, you **must run the script with root privileges (`sudo`)**:
+Follow these steps directly inside your Raspberry Pi terminal to get the code running.
 
+### Step 1: Create the Python file
+Open a new file named `led_scroll.py` using the Nano text editor:
+```bash
+nano led_scroll.py
+```
+
+### Step 2: Add the code
+1. Copy the Python code provided in this repository.
+2. Paste it into your terminal window (if using a mouse, right-click and select **Paste**).
+3. Press `Ctrl + O` then hit `Enter` to save the file.
+4. Press `Ctrl + X` to exit the text editor.
+
+### Step 3: Run the script
+Because the NeoPixel library requires direct hardware access to the Pi's GPIO pins, you **must** run the script with root privileges (`sudo`):
 ```bash
 sudo python3 led_scroll.py
 ```
 
-* To stop the scrolling script, press `Ctrl + C`.
+*To stop the scrolling text at any time, press `Ctrl + C` in your terminal.*
 
 ## ⚙️ Customization
 Open `led_scroll.py` and modify the variables at the top to change the behavior:
