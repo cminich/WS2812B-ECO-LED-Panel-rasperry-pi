@@ -9,17 +9,17 @@ MATRIX_HEIGHT = 8
 NUM_PIXELS = MATRIX_WIDTH * MATRIX_HEIGHT
 
 # 2. Setup your text and colors
-TEXT_TO_SHOW = " HELLO WORLD "
+TEXT_TO_SHOW = " HELLO ROOM 011 "
 TEXT_COLOR = (255, 0, 0)      # Red (R, G, B)
 BACKGROUND_COLOR = (0, 0, 0)  # Off
 BRIGHTNESS = 0.15             # 15% brightness
 
 # 3. Initialize the NeoPixel strip on GPIO 18
 pixels = neopixel.NeoPixel(
-    board.D18, 
-    NUM_PIXELS, 
-    brightness=BRIGHTNESS, 
-    auto_write=False, 
+    board.D18,
+    NUM_PIXELS,
+    brightness=BRIGHTNESS,
+    auto_write=False,
     pixel_order=neopixel.GRB
 )
 
@@ -52,16 +52,16 @@ try:
     while True:
         for x_offset in range(text_width + MATRIX_WIDTH):
             pixels.fill((0, 0, 0))
-            
+
             for y in range(MATRIX_HEIGHT):
                 for x in range(MATRIX_WIDTH):
                     # Sample cleanly starting from the top row (0)
                     pixel_color = image.getpixel((x + x_offset, y))
                     pixel_index = get_pixel_index(x, y)
-                    
+
                     if pixel_index < NUM_PIXELS:
                         pixels[pixel_index] = pixel_color
-                    
+
             pixels.show()
             time.sleep(0.05)
 
